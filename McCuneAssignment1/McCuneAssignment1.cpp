@@ -7,9 +7,19 @@ using namespace std;
 
 int main()
 {
+	double withdrawlArray[15];
+	double depositArray[15];
+	double checkArray[15];
 	double beginningBalance;
 	double runningBalance;
 	double transaction;
+	double withdrawlTotal;
+	double depositTotal;
+	double checkTotal;
+	int wcount = 0;
+	int dcount = 0;
+	int ccount = 0;
+	int i;
 	char transactionType;
 
 	cout << "Please enter account balance:" << endl;
@@ -24,6 +34,8 @@ int main()
 		{
 			cout << "Enter amount to be withdrawn:" << endl;
 				cin >> transaction;
+				withdrawlArray[wcount] = transaction;
+				++wcount;
 				runningBalance -= transaction;
 
 		}
@@ -44,7 +56,12 @@ int main()
 
 	cout << "Your beginning balance was: " << beginningBalance << endl;
 	cout << "Your balance is: " << runningBalance << endl;
-	
+	cout << "Your withdrawls: " << endl;
+	for (i = 0; i < wcount; i++)
+		cout  << withdrawlArray[i] << endl;
+	withdrawlTotal += withdrawlArray[i];
+	cout << "total withdrawls: " << withdrawlTotal << endl;
+
     return 0;
 }
 
