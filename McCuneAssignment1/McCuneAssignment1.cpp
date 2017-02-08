@@ -18,25 +18,25 @@ int main()
 		cout << "Enter transaction type (W)ithdrawl, (D)eposit, (C)heck, (Q)uit" << endl;
 		cin >> transactionType;
 
-		if (transactionType = 'W' || 'w')
+		if (transactionType = 'W')
 		{
 			cout << "Enter amount to be withdrawn:" << endl;
 				cin >> transaction;
 				balance -= transaction;
 
 		}
-		else if (transactionType = 'D' || 'd')
+		else if (transactionType = 'D')
 		{
 			cout << "Enter amount to be deposited:" << endl;
 			cin >> transaction;
 			balance += transaction;
 		}
-		else if (transactionType = 'C' || 'c')
+		else if (transactionType = 'C')
 		{
 
 		}
 
-	} while (transactionType != 'Q' || 'q');
+	} while (transactionType != 'Q');
 
 		cout << balance;
 	
