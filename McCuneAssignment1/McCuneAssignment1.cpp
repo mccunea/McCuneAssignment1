@@ -7,12 +7,14 @@ using namespace std;
 
 int main()
 {
-	double balance;
+	double beginningBalance;
+	double runningBalance;
 	double transaction;
 	char transactionType;
 
 	cout << "Please enter account balance:" << endl;
-	cin >> balance;
+	cin >> beginningBalance;
+	runningBalance = beginningBalance;
 	
 	do {
 		cout << "Enter transaction type (W)ithdrawl, (D)eposit, (C)heck, (Q)uit" << endl;
@@ -22,25 +24,26 @@ int main()
 		{
 			cout << "Enter amount to be withdrawn:" << endl;
 				cin >> transaction;
-				balance -= transaction;
+				runningBalance -= transaction;
 
 		}
 		else if (transactionType == 'D' || transactionType == 'd')
 		{
 			cout << "Enter amount to be deposited:" << endl;
 			cin >> transaction;
-			balance += transaction;
+			runningBalance += transaction;
 		}
 		else if (transactionType == 'C' || transactionType == 'c')
 		{
 			cout << "Enter check amount: " << endl;
 			cin >> transaction;
-			balance -= transaction;
+			runningBalance -= transaction;
 		}
 
-	} while (transactionType != 'Q' || transactionType != 'q');
+	} while (transactionType != 'Q' && transactionType != 'q');
 
-	cout << "Your balance is: " << balance << endl;
+	cout << "Your beginning balance was: " << beginningBalance << endl;
+	cout << "Your balance is: " << runningBalance << endl;
 	
     return 0;
 }
