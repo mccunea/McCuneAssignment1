@@ -13,9 +13,9 @@ int main()
 	double beginningBalance;
 	double runningBalance;
 	double transaction;
-	double withdrawlTotal;
-	double depositTotal;
-	double checkTotal;
+	double withdrawlTotal = 0;
+	double depositTotal = 0;
+	double checkTotal = 0;
 	int wcount = 0;
 	int dcount = 0;
 	int ccount = 0;
@@ -43,12 +43,16 @@ int main()
 		{
 			cout << "Enter amount to be deposited:" << endl;
 			cin >> transaction;
+			depositArray[dcount] = transaction;
+			++dcount;
 			runningBalance += transaction;
 		}
 		else if (transactionType == 'C' || transactionType == 'c')
 		{
 			cout << "Enter check amount: " << endl;
 			cin >> transaction;
+			checkArray[ccount] = transaction;
+			++ccount;
 			runningBalance -= transaction;
 		}
 
@@ -58,9 +62,25 @@ int main()
 	cout << "Your balance is: " << runningBalance << endl;
 	cout << "Your withdrawls: " << endl;
 	for (i = 0; i < wcount; i++)
-		cout  << withdrawlArray[i] << endl;
-	withdrawlTotal += withdrawlArray[i];
-	cout << "total withdrawls: " << withdrawlTotal << endl;
+	{
+		cout << withdrawlArray[i] << endl;
+		withdrawlTotal += withdrawlArray[i];
+	}
+
+		cout << "total withdrawls: " << withdrawlTotal << endl;
+	for (i = 0; i < dcount; i++)
+	{
+		cout << depositArray[i] << endl;
+		depositTotal += depositArray[i];
+	}
+	cout << "total deposits: " << depositTotal << endl;
+
+	for (i = 0; i < ccount; i++)
+	{
+		cout << checkArray[i] << endl;
+		checkTotal += checkArray[i];
+	}
+	cout << "total checks: " << checkTotal << endl;
 
     return 0;
 }
