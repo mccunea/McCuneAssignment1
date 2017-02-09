@@ -22,6 +22,7 @@ int main()
 	int i;
 	char transactionType;
 
+
 	cout << "Please enter account balance:" << endl;
 	cin >> beginningBalance;
 	runningBalance = beginningBalance;
@@ -32,7 +33,7 @@ int main()
 
 		if (transactionType == 'W' || transactionType == 'w')
 		{
-			cout << "Enter amount to be withdrawn:" << endl;
+				cout << "Enter amount to be withdrawn:" << endl;
 				cin >> transaction;
 				withdrawlArray[wcount] = transaction;
 				++wcount;
@@ -55,33 +56,41 @@ int main()
 			++ccount;
 			runningBalance -= transaction;
 		}
+		else if (transactionType == 'Q' || transactionType == 'q')
+		{
+
+		}
+		else
+		{
+			cout << "Please enter a valid character." << endl;
+		}
 
 	} while (transactionType != 'Q' && transactionType != 'q');
 
 	cout << "Your beginning balance was: " << beginningBalance << endl;
-	cout << "Your balance is: " << runningBalance << endl;
+	
 	cout << "Your withdrawls: " << endl;
 	for (i = 0; i < wcount; i++)
 	{
 		cout << withdrawlArray[i] << endl;
 		withdrawlTotal += withdrawlArray[i];
 	}
-
 		cout << "total withdrawls: " << withdrawlTotal << endl;
+		cout << "Your deposits:" << endl;
 	for (i = 0; i < dcount; i++)
 	{
 		cout << depositArray[i] << endl;
 		depositTotal += depositArray[i];
 	}
 	cout << "total deposits: " << depositTotal << endl;
-
+	cout << "Your checks:" << endl;
 	for (i = 0; i < ccount; i++)
 	{
 		cout << checkArray[i] << endl;
 		checkTotal += checkArray[i];
 	}
 	cout << "total checks: " << checkTotal << endl;
-
+	cout << "Your remaining balance is: " << runningBalance << endl;
     return 0;
 }
 
