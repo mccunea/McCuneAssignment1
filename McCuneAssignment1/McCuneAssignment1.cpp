@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
@@ -21,7 +22,9 @@ int main()
 	int ccount = 0;
 	int i;
 	char transactionType;
-
+	cout << setprecision(2) << fixed;
+	
+	
 
 	cout << "Please enter account balance:" << endl;
 	cin >> beginningBalance;
@@ -66,31 +69,37 @@ int main()
 		}
 
 	} while (transactionType != 'Q' && transactionType != 'q');
-
-	cout << "Your beginning balance was: " << beginningBalance << endl;
+	system("cls");
+	cout <<  "\tTransaction Summary:" << endl << "------------------------------------------" << endl;
+	cout << "\tBeginning balance: " << setw(7) << "$" << beginningBalance << endl << endl;
 	
-	cout << "Your withdrawls: " << endl;
+	cout << "\t*Withdrawls: " << endl << endl;
 	for (i = 0; i < wcount; i++)
 	{
-		cout << withdrawlArray[i] << endl;
+		cout << "\t$ " << withdrawlArray[i] << endl;
 		withdrawlTotal += withdrawlArray[i];
 	}
-		cout << "total withdrawls: " << withdrawlTotal << endl;
-		cout << "Your deposits:" << endl;
+		cout  << "\t----------------------------------" << endl;
+		cout  <<  "\tTotal withdrawls: " << setw(5) << "$" << withdrawlTotal << endl;
+		cout  << "\t----------------------------------" << endl << endl;
+		cout << "\t*Deposits:" << endl << endl;
 	for (i = 0; i < dcount; i++)
 	{
-		cout << depositArray[i] << endl;
+		cout << "\t$ " << depositArray[i] << endl;
 		depositTotal += depositArray[i];
 	}
-	cout << "total deposits: " << depositTotal << endl;
-	cout << "Your checks:" << endl;
+	cout  << "\t----------------------------------" << endl;
+	cout  << "\tTotal deposits: " << setw(5) << "$" << depositTotal << endl;
+	cout  << "\t----------------------------------" << endl << endl;
+	cout << "\t*Checks:" << endl;
 	for (i = 0; i < ccount; i++)
 	{
-		cout << checkArray[i] << endl;
+		cout << "\t$ " << checkArray[i] << endl;
 		checkTotal += checkArray[i];
 	}
-	cout << "total checks: " << checkTotal << endl;
-	cout << "Your remaining balance is: " << runningBalance << endl;
+	cout  << "\t----------------------------------" << endl;
+	cout  << "\tTotal checks: " << setw(5) << "$" << checkTotal << endl << "------------------------------------------" << endl;
+	cout << "\tRemaining balance: " <<setw(8) << "$"  << runningBalance << endl;
     return 0;
 }
 
