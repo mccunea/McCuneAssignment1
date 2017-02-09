@@ -8,9 +8,9 @@ using namespace std;
 
 int main()
 {
-	double withdrawlArray[15];
-	double depositArray[15];
-	double checkArray[15];
+	double withdrawlArray[50];
+	double depositArray[50];
+	double checkArray[50];
 	double beginningBalance;
 	double runningBalance;
 	double transaction;
@@ -32,6 +32,7 @@ int main()
 	runningBalance = beginningBalance;
 	
 	do {
+		system("cls");
 		cout << "Enter transaction type (W)ithdrawl, (D)eposit, (C)heck, (Q)uit" << endl;
 		cin >> transactionType;
 
