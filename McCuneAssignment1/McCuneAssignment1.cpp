@@ -22,6 +22,7 @@ int main()
 	int ccount = 0;
 	int i;
 	char transactionType;
+	bool valid;
 	cout << setprecision(2) << fixed;
 	
 	
@@ -36,8 +37,18 @@ int main()
 
 		if (transactionType == 'W' || transactionType == 'w')
 		{
+			do {
 				cout << "Enter amount to be withdrawn:" << endl;
 				cin >> transaction;
+
+				valid = cin.fail();
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (valid == true)
+				{
+					cout << "Entry invalid. Only use numbers or decimals." << endl;
+				}
+			} while (valid == true);
 				withdrawlArray[wcount] = transaction;
 				++wcount;
 				runningBalance -= transaction;
@@ -45,19 +56,41 @@ int main()
 		}
 		else if (transactionType == 'D' || transactionType == 'd')
 		{
-			cout << "Enter amount to be deposited:" << endl;
-			cin >> transaction;
-			depositArray[dcount] = transaction;
-			++dcount;
-			runningBalance += transaction;
+			do {
+				cout << "Enter amount to be deposited:" << endl;
+				cin >> transaction;
+
+				valid = cin.fail();
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (valid == true)
+				{
+					cout << "Entry invalid. Only use numbers or decimals." << endl;
+				}
+			} while (valid == true);
+
+				depositArray[dcount] = transaction;
+				++dcount;
+				runningBalance += transaction;
 		}
 		else if (transactionType == 'C' || transactionType == 'c')
 		{
-			cout << "Enter check amount: " << endl;
-			cin >> transaction;
-			checkArray[ccount] = transaction;
-			++ccount;
-			runningBalance -= transaction;
+			do {
+				cout << "Enter check amount: " << endl;
+				cin >> transaction;
+
+				valid = cin.fail();
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				if (valid == true)
+				{
+					cout << "Entry invalid. Only use numbers or decimals." << endl;
+				}
+			} while (valid == true);
+
+				checkArray[ccount] = transaction;
+				++ccount;
+				runningBalance -= transaction;
 		}
 		else if (transactionType == 'Q' || transactionType == 'q')
 		{
@@ -69,7 +102,10 @@ int main()
 		}
 
 	} while (transactionType != 'Q' && transactionType != 'q');
+
+
 	system("cls");
+	cout << "\n\n";
 	cout <<  "\tTransaction Summary:" << endl << "------------------------------------------" << endl;
 	cout << "\tBeginning balance: " << setw(15) << beginningBalance << endl << endl;
 	
@@ -99,7 +135,7 @@ int main()
 	}
 	cout  << "\t----------------------------------" << endl;
 	cout  << "\tTotal checks: "  << setw(20) << checkTotal << endl << "------------------------------------------" << endl;
-	cout << "\tRemaining balance: "  << setw(15) << runningBalance << endl;
+	cout << "\tRemaining balance: " << setw(15) << runningBalance << endl << "\n\n\n\n\n";
     return 0;
 }
 
