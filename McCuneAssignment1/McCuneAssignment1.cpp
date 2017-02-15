@@ -8,28 +8,28 @@ using namespace std;
 
 int main()
 {
-	double withdrawlArray[50];
-	double depositArray[50];
-	double checkArray[50];
-	double overdraftArray[50];
-	double beginningBalance;
-	double runningBalance;
-	double transaction;
-	double overdraft;
-	double withdrawlTotal = 0;
-	double depositTotal = 0;
-	double checkTotal = 0;
-	double overdraftTotal = 0;
-	int wcount = 0;
-	int dcount = 0;
-	int ccount = 0;
-	int ocount = 0;
-	int i;
-	char transactionType;
-	char overdraftConfirm;
-	bool valid;
-	bool didOverdraft = false;
-	cout << setprecision(2) << fixed;
+	double withdrawlArray[50]; // used to track withdrawls
+	double depositArray[50]; // used to track deposits
+	double checkArray[50]; // used to track checks
+	double overdraftArray[50]; // used to track overdrafts
+	double beginningBalance; // used to set the beginning account balance
+	double runningBalance; // used to keep track of a users balance
+	double transaction; // used to track user input for all transactions
+	double overdraft; // used to set an expense to be applied if a user overdrafts
+	double withdrawlTotal = 0; // used to sum up withdrawls
+	double depositTotal = 0; // used to sum up deposits
+	double checkTotal = 0; // used to sum up checks
+	double overdraftTotal = 0; // used to sum up overdrafts
+	int wcount = 0; // used for indexing in the withdrawlArray
+	int dcount = 0; // used for indexing in the depositArray
+	int ccount = 0; // used for indexing in the checksArray
+	int ocount = 0; // used for indexing in the overdraftArray
+	int i; // used for iterating the arrays. 
+	char transactionType; // user input which selects the transaction type
+	char overdraftConfirm; // asks the user if they are sure they want to accept overdraft fees. 
+	bool valid; // used for error checking
+	bool didOverdraft = false; // if a user has not overdrafted, overdraft data will not display on their check.
+	cout << setprecision(2) << fixed; // sets precision for the later output statements.
 
 	// Lines 34 - 46 collect user input for the starting account balance and initalizes an additional variable (runningBalance) to track transactions.
 	do {
@@ -53,7 +53,7 @@ int main()
 	transaction type. They select a type and the code for that type executes then they are returned to the question until they choose to quit. At that point
 	their transactions are displayed for them to review.*/
 	do {
-		system("cls");
+		system("cls"); // clears any excess output.
 		cout << "Enter transaction type (W)ithdrawl, (D)eposit, (C)heck, (Q)uit" << endl;
 		cin >> transactionType; // collected for the if else conditional statements. This value will determine the code to be executed.
 
@@ -191,11 +191,11 @@ int main()
 			cout << "Please enter a valid character." << endl;
 		}
 
-	} while (transactionType != 'Q' && transactionType != 'q');
+	} while (transactionType != 'Q' && transactionType != 'q'); // when the user inputs Q or q the do while statement will end.
 
 	/*Lines 190 - 239 format and produce the output for the program. The transaction arrays are incremented through and summed up with total variables for later display. 
 	0 is returned at the end of this block in order to let the program know that main() has finished.*/
-	system("cls");
+	system("cls"); 
 	cout << "\n\n";
 	cout << "\tTransaction Summary:" << endl << "------------------------------------------" << endl;
 	cout << "\tBeginning balance: " << setw(15) << beginningBalance << endl << endl;
