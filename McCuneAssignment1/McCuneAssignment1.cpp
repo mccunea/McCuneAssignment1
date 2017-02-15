@@ -193,7 +193,7 @@ int main()
 
 	} while (transactionType != 'Q' && transactionType != 'q'); // when the user inputs Q or q the do while statement will end.
 
-	/*Lines 190 - 239 format and produce the output for the program. The transaction arrays are incremented through and summed up with total variables for later display. 
+	/*Lines 190 - 239 format and produce the output for the program. The transaction arrays are iterated through and summed up with total variables for later display. 
 	0 is returned at the end of this block in order to let the program know that main() has finished.*/
 	system("cls"); 
 	cout << "\n\n";
